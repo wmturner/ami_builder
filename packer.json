@@ -1,0 +1,30 @@
+{
+  "provisioners": [
+    { "type": "shell",
+      "inline": ["sudo pip install ansible"]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "playbook.yaml",
+      "role_paths": ["./cis"]
+    }
+
+  ],
+
+  "builders": [
+{
+    "access_key": "",
+    "secret_key": "",
+    "region": "us-west-2",
+    "type": "amazon-ebs",
+    "ssh_username": "ec2-user",
+    "ami_name": "cis-test",
+    "source_ami": "ami-39d39d41",
+    "instance_type": "t2.medium",
+    "security_group_id": "",
+    "vpc_id": "",
+    "subnet_id": ""
+}
+  ]
+}
+
